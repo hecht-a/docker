@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  mariadb:
+    image: mariadb
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+
+  phpmyadmin_galera:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8891:80
+    links:
+      - mariadb
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
