@@ -1,0 +1,11 @@
+version: "3.4"
+
+services:
+  node:
+    image: node:18-alpine
+    working_dir: /srv/app
+    volumes:
+      - .:/srv/app
+    ports:
+      - "3000:3000"
+
